@@ -2,9 +2,9 @@ package yevtukh.anton.controllers;
 
 import yevtukh.anton.database.DbWorker;
 import yevtukh.anton.database.InitData;
-import yevtukh.anton.model.dao.ClientsDao;
-import yevtukh.anton.model.dao.OrdersDao;
-import yevtukh.anton.model.dao.ProductsDao;
+import yevtukh.anton.model.dao.interfaces.ClientsDao;
+import yevtukh.anton.model.dao.interfaces.OrdersDao;
+import yevtukh.anton.model.dao.interfaces.ProductsDao;
 import yevtukh.anton.model.dto.Client;
 import yevtukh.anton.model.dto.Item;
 import yevtukh.anton.model.dto.Order;

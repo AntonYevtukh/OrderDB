@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="OrdersDB:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="FlatDB.war">
+      <element id="artifact" artifact-name="OrdersDB:war exploded" />
+    </root>
+  </artifact>
+</component>

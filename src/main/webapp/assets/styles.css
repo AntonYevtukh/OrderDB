@@ -221,6 +221,10 @@ input:active, input:focus, select:active, select:focus {
     box-shadow: #3B5998 2px;
 }
 
+.number_input {
+    text-align: right;
+}
+
 .button {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;

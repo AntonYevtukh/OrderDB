@@ -1,0 +1,330 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: #3B5998;
+    border-width: 0px;
+    border-bottom: 1px solid #303030;
+}
+
+.title {
+    font-size: 32px;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    right:0;
+    text-align: center;
+    vertical-align: middle;
+    margin: 9px 0 0 0;
+    color: whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Ubuntu';
+    font-weight: 700;
+    color: #3B5998;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Ubuntu';
+    font-weight: 700;
+    color: #3B5998;
+}
+
+
+
+.footer{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:50px;
+    position: relative;
+    background-color: #3B5998;
+    border-width: 0px;
+    border-top: 1px solid #303030;
+}
+
+.main_area {
+    position: relative;
+    width: auto;
+    height: 100%;
+    padding: 20px;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right:0;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.buttons_container {
+    position: relative;
+    height: 60%;
+    width: 40%;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    padding: 5% 0;
+}
+
+.links {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+button {
+    border: none;
+}
+
+.button_large {
+    width: 100%;
+    font-size: 32px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    height: 20%;
+    margin: 10px auto;
+    background-color: #3B5998;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.textarea_container {
+    width: auto;
+    margin: 5px;
+}
+
+.left {
+    display: inline-block;
+    float: left;
+}
+
+.right {
+    display: inline-block;
+    float: right;
+}
+
+textarea {
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    border: 2px solid #3B5998;
+}
+
+textarea:focus, textarea:active {
+    box-shadow: #3B5998 2px;
+}
+
+a.link {
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3B5998;
+}
+
+a.link:hover {
+    text-decoration: underline;
+    cursor: hand;
+}
+
+button:hover, button:focus, button:active {
+    box-shadow: #3B5998 2px;
+    text-decoration: none;
+    cursor: hand;
+}
+
+button {
+    margin: 10px;
+}
+
+.button_large:hover, .button_large:focus, .button_large:active {
+    box-shadow: #3B5998 5px;
+}
+
+.content{
+    width: 60%;
+    height: auto;
+    position: absolute;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    right: 0;
+    left: 0;
+    padding-bottom: 40px;
+}
+
+label {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 5px 5px;
+    width: 16%;
+    font-weight: 700;
+    color: #3B5998;
+}
+
+.info_label {
+    min-width: 20%;
+    width: auto;
+    margin: 0;
+}
+
+.right_text {
+    text-align: right;
+}
+
+input, select {
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30%;
+    font-weight: 700;
+    border: 2px solid #3B5998;
+    margin: 5px 5px;
+    height: 24px;
+    padding-left: 5px;
+}
+
+input:active, input:focus, select:active, select:focus {
+    box-shadow: #3B5998 2px;
+}
+
+.number_input {
+    text-align: right;
+}
+
+.button {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    height: 24px;
+    width: 100px;
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: whitesmoke;
+    background-color: #3B5998;
+    position: relative;
+}
+
+.button:hover, button:focus, button:active {
+    box-shadow: #3B5998 2px;
+    cursor: hand;
+}
+
+.top_margin {
+    margin-top: 10px;
+}
+
+.right_margin {
+    margin-right: 5px;
+}
+
+.form_container, .table_container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.search_form {
+    width: 100%;
+}
+
+.table_container {
+    margin-top: 10px;
+}
+
+table {
+    border: 2px solid #3B5998;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #3B5998;
+    vertical-align: top;
+    padding: 0 5px;
+}
+
+th {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #3B5998;
+    color: whitesmoke;
+}
+
+.find, .add {
+    width: auto;
+    padding: 5px;
+    border: 2px solid #3B5998;
+    margin-bottom: 20px;
+}
+
+.success {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    height: 36px;
+    border: 2px solid rgba(38, 106, 46, 1);
+    background-color: rgba(38, 106, 46, 0.25);
+    color: rgba(38, 106, 46, 1);
+}
+
+.error {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    height: 36px;
+    border: 2px solid rgba(178, 34, 34, 1);
+    background-color: rgba(178, 34, 34, 0.25);
+    color: rgba(178, 34, 34, 1);
+}

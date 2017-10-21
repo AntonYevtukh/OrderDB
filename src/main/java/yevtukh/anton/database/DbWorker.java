@@ -1,8 +1,14 @@
 package yevtukh.anton.database;
 
-import yevtukh.anton.model.dao.ClientsDao;
-import yevtukh.anton.model.dao.OrdersDao;
-import yevtukh.anton.model.dao.ProductsDao;
+import yevtukh.anton.model.dao.implementations.mysql.MySqlClientsDao;
+import yevtukh.anton.model.dao.implementations.mysql.MySqlOrdersDao;
+import yevtukh.anton.model.dao.implementations.mysql.MySqlProductsDao;
+import yevtukh.anton.model.dao.implementations.postgresql.PostgreSqlClientsDao;
+import yevtukh.anton.model.dao.implementations.postgresql.PostgreSqlOrdersDao;
+import yevtukh.anton.model.dao.implementations.postgresql.PostgreSqlProductsDao;
+import yevtukh.anton.model.dao.interfaces.ClientsDao;
+import yevtukh.anton.model.dao.interfaces.OrdersDao;
+import yevtukh.anton.model.dao.interfaces.ProductsDao;
 import yevtukh.anton.model.dto.Client;
 import yevtukh.anton.model.dto.Order;
 import yevtukh.anton.model.dto.Product;
@@ -42,9 +48,6 @@ public class DbWorker {
         Properties properties = new Properties();
         properties.load(inputStream);
 
-        DB_CONNECTION = properties.getProperty("db.url");
-        DB_USER = properties.getProperty("db.user");
-        DB_PASSWORD = properties.getProperty("db.password");
         DBMS_NAME = properties.getProperty("dbms.name");
 
         boolean drop;
@@ -54,6 +57,23 @@ public class DbWorker {
             drop = true;
         }
         DROP = drop;
+
+        boolean environmentConfig;
+        try {
+            environmentConfig = Integer.parseInt(properties.getProperty("db.environment_config")) == 1 ? true : false;
+        } catch (IllegalArgumentException | NullPointerException e) {
+            environmentConfig = false;
+        }
+
+        if (!environmentConfig) {
+            DB_CONNECTION = properties.getProperty("db.url");
+            DB_USER = properties.getProperty("db.user");
+            DB_PASSWORD = properties.getProperty("db.password");
+        } else {
+            DB_CONNECTION = System.getenv("JDBC_DATABASE_URL");
+            DB_USER = System.getenv("JDBC_DATABASE_USERNAME");
+            DB_PASSWORD = System.getenv("JDBC_DATABASE_PASSWORD");
+        }
     }
 
     public void initDB()
@@ -68,17 +88,38 @@ public class DbWorker {
 
     public ClientsDao createClientsDao()
             throws SQLException {
-        return new ClientsDao(getConnection());
+        switch (DBMS_NAME) {
+            case "mysql":
+                return new MySqlClientsDao(getConnection());
+            case "postgresql":
+                return new PostgreSqlClientsDao(getConnection());
+            default:
+                throw new RuntimeException("Database management system is not supported");
+        }
     }
 
     public ProductsDao createProductsDao()
             throws SQLException {
-        return new ProductsDao(getConnection());
+        switch (DBMS_NAME) {
+            case "mysql":
+                return new MySqlProductsDao(getConnection());
+            case "postgresql":
+                return new PostgreSqlProductsDao(getConnection());
+            default:
+                throw new RuntimeException("Database management system is not supported");
+        }
     }
 
     public OrdersDao createOrdersDao()
             throws SQLException {
-        return new OrdersDao(getConnection());
+        switch (DBMS_NAME) {
+            case "mysql":
+                return new MySqlOrdersDao(getConnection());
+            case "postgresql":
+                return new PostgreSqlOrdersDao(getConnection());
+            default:
+                throw new RuntimeException("Database management system is not supported");
+        }
     }
 
     public void fillDb()

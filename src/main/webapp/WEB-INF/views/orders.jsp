@@ -38,7 +38,7 @@
                             </c:forEach>
                         </select>
                         <label class="input_label">Count</label>
-                        <input type="number" min="1" name="<c:out value="count_${i}"/>"
+                        <input class="number_input" type="number" min="1" name="<c:out value="count_${i}"/>"
                                value="${counts == null ? 1 : counts.get(i)}">
                     </c:forEach>
 

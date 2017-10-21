@@ -1,7 +1,7 @@
 package yevtukh.anton.controllers;
 
 import yevtukh.anton.database.DbWorker;
-import yevtukh.anton.model.dao.ClientsDao;
+import yevtukh.anton.model.dao.interfaces.ClientsDao;
 import yevtukh.anton.model.dto.Client;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
